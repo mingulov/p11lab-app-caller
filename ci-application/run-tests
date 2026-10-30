@@ -1,0 +1,16 @@
+#!/bin/sh
+# PLACEHOLDER fixture (M09 pilot setup, ASK-2/3) — NOT a reviewed control.
+# Full case variants (success argv/markers/sentinels, intentional nonzero,
+# literal-argv, blocked-handoff) arrive with the reviewed execution brief.
+# Requires P11LAB_MODULE from the adapter; asserts nothing about providers.
+set -u
+if [ -z "${P11LAB_MODULE:-}" ]; then
+  echo "placeholder run-tests: P11LAB_MODULE is not set" >&2
+  exit 2
+fi
+if [ ! -f "$P11LAB_MODULE" ]; then
+  echo "placeholder run-tests: module missing: $P11LAB_MODULE" >&2
+  exit 2
+fi
+echo "placeholder run-tests: module present, no controls asserted"
+exit 0
